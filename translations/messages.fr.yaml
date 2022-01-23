@@ -1,0 +1,35 @@
+contact:
+    titre: Contactez - nous
+    item_adresse: adresse
+    item_telephone: téléphone
+    adresse: Avenue Downtown 123, Manhattan, New York, Etat-Unis d'Amérique
+
+
+rubrique_footer_2:
+  titre: Nos réseaux sociaux
+  texte: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.
+
+
+rubrique_footer_3:
+  titre: A propos de notre compagnie
+  texte: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.
+
+page_contact:
+  titre: Restez en contact
+  adresse: rue Fake 123, LN1 2ST, Londre, Grande-Bretagne
+
+page_Details_work:
+  titre: Détails d'un travail
+
+page_Details_tag:
+  titre: Détails d'un tag
+
+page_Details_categorie:
+  titre: Détails d'une catégorie
+
+page_Details_post:
+  titre: Détails d'un post
+
+notrePortfolio:
+  titre: Notre portfolio
+

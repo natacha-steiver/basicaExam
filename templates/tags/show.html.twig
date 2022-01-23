@@ -1,0 +1,31 @@
+{#
+  ./templates/tags/show.html.twig
+  Variables disponibles:
+    - tags Tags(id, nom)
+
+#}
+
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{  attribute(tag, 'nom' ~ app.request.locale)  }}
+  {% endblock %}
+
+
+{% block content1 %}
+  <div class="section section-breadcrumbs">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{'page_Details_tag.titre' | trans }}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <section class="container">
+    <h1>  {{  attribute(tag, 'nom' ~ app.request.locale)  }}</h1>
+    {% include 'works/liste.html.twig' with {works: tag.works} %}
+  </section>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{#
+  ./templates/posts/blog.html.twig
+  Variables disponibles:
+    - pages Array(paginations(titre, imagefile,slug))
+#}
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+
+
+
+
+<!------------------>
+{% for pagination in paginations %}
+<!-- Blog Post Excerpt -->
+<div class="col-sm-6">
+<div class="blog-post blog-single-post">
+<div class="single-post-title">
+
+<h2>	{{  attribute(pagination, 'titre' ~ app.request.locale)  }}</h2>
+</div>
+
+<div class="single-post-image">
+<img src="/basica/public/{{ vich_uploader_asset(pagination , 'imagefile') }}" alt="Post Title">
+</div>
+
+<div class="single-post-info">
+<i class="glyphicon glyphicon-time"></i>{{pagination.datecreation| date('d F, Y')}} <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+</div>
+
+<div class="single-post-content">
+<p>
+{{  attribute(pagination, 'texte' ~ app.request.locale)  }}
+</p>
+
+<a href="{{ path('app_posts_show', {
+          'id': pagination.id,
+          'slug': pagination.slug
+    }) }}" class="btn">Read more</a>
+
+</div>
+</div>
+</div>
+<!-- End Blog Post Excerpt -->
+{% endfor  %}
+
+
+					<!-- End Blog Post Excerpt -->
+
+
+                <!-- Pagination -->
+
+
+
+<div class="navigation">
+{# knp_pagination_render(paginations,'posts/pagination.html.twig') #}
+  {{ knp_pagination_render(paginations) }}
+</div>
+
+
+
+
+
+				</div>
+			</div>
+	    </div>

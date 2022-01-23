@@ -1,0 +1,37 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/basica/public/build/runtime.js",
+        "/basica/public/build/app.js"
+      ],
+      "css": [
+        "/basica/public/build/app.css"
+      ]
+    },
+    "custom": {
+      "js": [
+        "/basica/public/build/runtime.js"
+      ],
+      "css": [
+        "/basica/public/build/custom.css"
+      ]
+    },
+    "main": {
+      "js": [
+        "/basica/public/build/runtime.js"
+      ],
+      "css": [
+        "/basica/public/build/main.css"
+      ]
+    },
+    "Bootstrap": {
+      "js": [
+        "/basica/public/build/runtime.js"
+      ],
+      "css": [
+        "/basica/public/build/Bootstrap.css"
+      ]
+    }
+  }
+}

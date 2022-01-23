@@ -1,0 +1,12 @@
+# ./src/Routes/pages.yaml
+
+show:
+    path: /{_locale}/{id}/{slug}/
+    controller: App\Controller\PagesController::showAction
+    defaults:
+        _locale: fr
+
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'
+        _locale: fr|en

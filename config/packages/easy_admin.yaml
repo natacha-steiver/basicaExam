@@ -1,0 +1,66 @@
+easy_admin:
+    site_name: 'SymfonyTest'
+    entities:
+        # List the entity class name you want to manage
+        Works:
+          class: App\Entity\Works
+          list:
+            fields:
+
+             - {property: 'titrefr'}
+             - {property: 'titreen'}
+             - {property: 'textefr'}
+             - {property: 'texteen'}
+             - { property: 'imagefile', type: 'vich_image' }
+             - { property: 'image', type: 'image',  base_path: '%app.path.property_work%'    }
+          form:
+            fields:
+             - {property: 'tags' }
+             - {property: 'titrefr'}
+             - {property: 'titreen'}
+             - {property: 'textefr'}
+             - {property: 'texteen'}
+             - {property: 'imagesize'}
+             - {property: 'updatedAt'}
+             - { property: 'imagefile', type: 'vich_image', template: 'posts/vich_uploader_image.html.twig' }
+        Posts:
+          class: App\Entity\Posts
+          list:
+            fields:
+             - {property: 'titrefr'}
+             - {property: 'titreen'}
+             - {property: 'textefr'}
+             - {property: 'texteen'}
+             - {property: 'comptes'}
+             - {property: 'dateCreation'}
+             - {property: 'slug'}
+
+
+             - { property: 'imagefile', type: 'vich_image' }
+             - { property: 'image', type: 'image',  base_path: '%app.path.property_image%'    }
+            # ...
+          form:
+            fields:
+             - {property: 'categories'}
+             - {property: 'titrefr'}
+             - {property: 'titreen'}
+             - {property: 'textefr'}
+             - {property: 'texteen'}
+             - {property: 'comptes'}
+             - {property: 'dateCreation'}
+             - {property: 'slug'}
+             - {property: 'imagesize'}
+             - {property: 'updatedAt'}
+             - { property: 'imagefile', type: 'vich_image', template: 'posts/vich_uploader_image.html.twig' }
+
+        Categories:
+          class: App\Entity\Categories
+          list:
+            fields:
+              - {property: 'id'}
+              - {property: 'nomfr'}
+              - {property: 'nomen'}
+              - {property: 'posts'}
+
+        Tags:
+          class: App\Entity\Tags

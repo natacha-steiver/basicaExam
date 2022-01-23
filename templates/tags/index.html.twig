@@ -1,0 +1,26 @@
+{#
+  ./templates/tags/index.html.twig
+  Variables disponibles:
+    - tags Array(Tags(id, nom, slug))
+#}
+
+
+
+
+
+  {% for tag in tags %}
+
+    <li       >
+
+      <a  href="{{ path('app_tags_show', {
+                      'id': tag.id,
+                      'slug': tag.slug
+                }) }}" >
+        {{ attribute(tag,'nom' ~ app.request.locale) }}
+      </a>
+
+    </li>
+
+
+
+  {% endfor %}

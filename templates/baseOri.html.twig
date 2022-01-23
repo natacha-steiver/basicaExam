@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+  {% include 'partials/head.html.twig'  %}
+
+<body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<p>test</p>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+
+        {% include 'partials/header.html.twig'  %}
+    </header><!--/header-->
+
+
+
+  {% block slider %}{% endblock %}
+    		<!-- Our Portfolio -->
+
+
+            <div class="section section-white">
+    	        <div class="container">
+    	        	<div class="row">
+
+
+              {% block content3 %}{% endblock %}
+    {% block content1 %}{% endblock %}
+
+    			<ul class="grid cs-style-3">
+    	      <!--indexworks-->
+
+    		  {% block content2 %}
+
+        {% endblock %}
+    			</ul>
+    	        	</div>
+    	        </div>
+    	    </div>
+    		<!-- Our Portfolio -->
+
+    <hr>
+
+    <!-- Our Articles -->
+
+    {% include 'partials/footer.html.twig'  %}
+
+        <!-- scripts -->
+
+
+          {% include 'partials/scripts.html.twig'  %}
+    </body>
+</html>

@@ -1,0 +1,142 @@
+{#
+  ./templates/pages/show.html.twig
+  Variables disponibles:
+    - page pages(id, titre)
+
+#}
+
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{  attribute(page, 'titre' ~ app.request.locale)  }}
+  {% endblock %}
+
+
+  {% block header %}
+
+  <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+
+        {% include 'partials/header.html.twig'  %}
+  </header>
+
+{% endblock %}
+
+{% block footer %}
+{% if page.id != 2 %}
+<div class="footer">
+    {% include 'partials/footer.html.twig'  %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block slider %}
+{% if page.id == 1 %}
+{{ render(controller('App\\Controller\\WorksController::sliderAction', {
+              vue: 'slider',
+})) }}
+
+{% elseif page.id == 4 %}
+<div class="section section-breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>   {{  attribute(page, 'titre' ~ app.request.locale)  }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+      {% include 'partials/contact.html.twig'  %}
+
+
+
+
+
+
+{% elseif page.id != 1 and page.id != 2  %}
+
+
+
+  <!-- Page Title -->
+<div class="section section-breadcrumbs">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h1>   {{  attribute(page, 'titre' ~ app.request.locale)  }}</h1>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endif %}
+{% endblock %}
+{% block content1 %}
+
+
+
+
+
+
+   {# CONTENUS COMPLEMENTAIRES #}
+
+   {% if page.id == 1 %}
+   <!-- Our Portfolio -->
+
+
+        <div class="section section-white">
+         <div class="container">
+           <div class="row">
+
+       <div class="section-title">
+     <h1>{{ attribute(page, 'titre' ~ app.request.locale) }}</h1>
+       </div>
+<!--content style grid 3-->
+{{ render(controller('App\\Controller\\WorksController::indexAction', {
+              vue: 'liste',
+              limit: 6
+
+})) }}
+
+           </div>
+         </div>
+     </div>
+   <!-- Our Portfolio -->
+
+<hr>
+
+
+
+
+
+
+   {{ render(controller('App\\Controller\\PostsController::indexAction', {
+                 vue: 'index',
+                 limit: 3
+
+   })) }}
+
+
+   {% elseif page.id == 2 %}
+
+
+   {{ render(controller('App\\Controller\\WorksController::indexAction', {
+                 vue: 'index',
+                 limit: 6
+
+   })) }}
+
+      {% elseif page.id == 3 %}
+      {{ render(controller('App\\Controller\\PostsController::indexAction', {
+                    vue: 'blog',
+                    limit: 8,
+
+
+
+      })) }}
+
+
+
+
+
+   {% endif %}
+
+{% endblock %}

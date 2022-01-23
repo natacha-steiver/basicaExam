@@ -1,0 +1,46 @@
+{#
+  ./templates/posts/liste.html.twig
+  Variables disponibles:
+    - posts Array(posts(id, slug, titre,datecreation,imagefile))
+#}
+
+<hr>
+
+<!-- Our Articles -->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <!-- Featured News -->
+      <div class="col-sm-6 featured-news">
+        <h2>Latest Blog Posts</h2>
+              {% for post in posts %}
+        <div class="row">
+          <div class="col-xs-4"><a href="{{ path('app_posts_show', {
+                          'id': post.id,
+                          'slug': post.slug
+                    }) }}"><img src="/basica/public/{{ vich_uploader_asset(post , 'imagefile') }}" alt="Post Title"></a></div>
+          <div class="col-xs-8">
+            <div class="caption"><a href="{{ path('app_posts_show', {
+                            'id': post.id,
+                            'slug': post.slug
+                      }) }}">{{ attribute(post, 'titre' ~ app.request.locale) }}</a></div>
+            <div class="date">{{post.datecreation| date('d F, Y')}} </div>
+            <div class="intro">{{ attribute(post, 'texte' ~ app.request.locale) }} <a href="{{ path('app_posts_show', {
+                            'id': post.id,
+                            'slug': post.slug
+                      }) }}">Read more...</a></div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      </div>
+      <!-- End Featured News -->
+
+
+      <!-- Latest News FB -->
+
+      <!-- End Featured News -->
+    </div>
+  </div>
+</div>

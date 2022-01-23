@@ -1,0 +1,38 @@
+app_homepage:
+    path:  /{_locale}
+    controller: App\Controller\PagesController::showAction
+    defaults:
+        _locale: fr
+        id: 1
+    requirements:
+        _locale: fr|en
+
+
+
+app_pages:
+    resource: "Routes/pages.yaml"
+    prefix: /pages
+    name_prefix: app_pages_
+
+
+
+
+app_works:
+    resource: "Routes/works.yaml"
+    prefix: /works
+    name_prefix: app_works_
+
+app_tags:
+    resource: "Routes/tags.yaml"
+    prefix: /tags
+    name_prefix: app_tags_
+
+app_posts:
+    resource: "Routes/posts.yaml"
+    prefix: /posts
+    name_prefix: app_posts_
+
+app_categories:
+    resource: "Routes/categories.yaml"
+    prefix: /categories
+    name_prefix: app_categories_

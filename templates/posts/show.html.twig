@@ -1,0 +1,68 @@
+{#
+  ./templates/posts/show.html.twig
+  Variables disponibles:
+    - posts Array(Posts(id, slug, titre,datecreation,texte,image))
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block content3 %}
+
+
+  <div class="section section-breadcrumbs">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{'page_Details_post.titre' | trans }} </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<div class="section">
+<div class="container">
+<div class="row">
+  <!-- Blog Post -->
+  <div class="col-sm-8">
+    <div class="blog-post blog-single-post">
+      <div class="single-post-title">
+        <h2>{{ attribute(post, 'titre' ~ app.request.locale) }}</h2>
+      </div>
+
+      <div class="single-post-image">
+        <img src="{{asset('dist/img/blog/'~post.image)}}" alt="Post Title">
+      </div>
+      <div class="single-post-info">
+        <i class="glyphicon glyphicon-time"></i>{{post.datecreation| date('d F, Y')}} <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+      </div>
+      <div class="single-post-content">
+        <h3>{{ attribute(post, 'titre' ~ app.request.locale) }}</h3>
+
+        <p>
+        {{ attribute(post, 'texte' ~ app.request.locale) }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- End Blog Post -->
+  <!-- Sidebar -->
+  <div class="col-sm-4 blog-sidebar">
+
+    <h4>Recent Posts</h4>
+
+     {{ render(controller('App\\Controller\\PostsController::latestPostAction')) }}
+    <h4>Categories</h4>
+    <ul class="blog-categories">
+       {{ render(controller('App\\Controller\\CategoriesController::indexAction')) }}
+    </ul>
+
+  </div>
+  <!-- End Sidebar -->
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

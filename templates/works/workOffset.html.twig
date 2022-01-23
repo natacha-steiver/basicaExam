@@ -1,0 +1,29 @@
+{#
+  ./templates/works/workOffset.html.twig
+  Variables disponibles:
+    - works Array(Works(id, slug,image))
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block content3 %}
+{% for work in works %}
+      <div class="col-md-4 col-sm-6">
+
+
+    <figure>
+      <img src="{{asset('dist/img/portfolio/'~work.image)}}" alt="{{work.image}}">
+      <figcaption>
+        <h3>{{ attribute(work, 'titre' ~ app.request.locale) }}</h3>
+        <span>{{work.auteurs.nom}} {{work.auteurs.prenom}}</span>
+        <a href="{{ path('app_works_show', {
+                        'id': work.id,
+                        'slug': work.slug
+                  }) }}">Take a look</a>
+      </figcaption>
+    </figure>
+      </div>
+
+
+  {% endfor %}
+{% endblock %}

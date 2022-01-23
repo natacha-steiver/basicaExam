@@ -1,0 +1,65 @@
+<div class="section section-breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Our Portfolio</h1>
+      </div>
+    </div>
+  </div>
+</div>
+{% for work in works %}
+
+
+
+    <div class="col-md-4 col-sm-6">
+    <figure>
+    <img src="{{asset('dist/img/portfolio/'~work.image)}}" alt="img04">
+    <figcaption>
+      <h3>{{work.titrefr}}</h3>
+      <span>Jacob Cummings</span>
+      <a href="{{ path('app_works_show', {
+                      'id': work.id,
+                      'slug': work.slug
+                }) }}">Take a look</a>
+    </figcaption>
+    </figure>
+    </div>
+
+
+			</ul>
+
+
+				</div>
+
+				<ul class="pager">
+				  <li><a href="#">More works</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+
+
+
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{asset('dist/js/jquery-1.9.1.min.js')}}"></script>')</script>
+        <script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
+
+		<!-- Scrolling Nav JavaScript -->
+		<script src="{{asset('dist/js/jquery.easing.min.js')}}"></script>
+		<script src="{{asset('dist/js/scrolling-nav.js')}}"></script>
+
+		<!-- Portfolio Thumbnail Hover Effect JavaScript -->
+		<script type="text/javascript" src="{{asset('dist/js/jquery.hoverdir.js')}}"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
+
+			});
+		</script>
+
+
+
+{% endfor %}

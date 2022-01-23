@@ -1,0 +1,50 @@
+
+{#
+  ./templates/partials/footer.html.twig
+
+#}
+
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-footer col-md-4 col-xs-6">
+        <h3>{{'contact.titre' | trans }}</h3>
+        <p class="contact-us-details">
+            <b>{{'contact.item_adresse' | trans }}:</b> {{'contact.adresse' | trans }}<br/>
+            <b>{{'contact.item_telephone' | trans }}:</b> +1 123 45678910<br/>
+            <b>Fax:</b> +1 123 45678910<br/>
+            <b>Email:</b> <a href="mailto:info@yourcompanydomain.com">info@yourcompanydomain.com</a>
+          </p>
+      </div>
+      <div class="col-footer col-md-4 col-xs-6">
+         <h3>{{'rubrique_footer_2.titre' | trans }}</h3>
+         <p>{{'rubrique_footer_2.texte' | trans }}</p>
+        <div>
+          <img src="{{asset('dist/img/icons/facebook.png')}}" width="32" alt="Facebook">
+          <img src="{{asset('dist/img/icons/twitter.png')}}" width="32" alt="Twitter">
+          <img src="{{asset('dist/img/icons/linkedin.png')}}" width="32" alt="LinkedIn">
+        <img src="{{asset('dist/img/icons/rss.png')}}" width="32" alt="RSS Feed">
+      </div>
+      </div>
+      <div class="col-footer col-md-4 col-xs-6">
+          <h3>{{'rubrique_footer_3.titre' | trans }}</h3>
+          <p>{{'rubrique_footer_3.texte' | trans }}</p>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="footer-copyright">
+          &copy; 2014 <a href="http://www.vactualart.com/portfolio-item/basica-a-free-html5-template/">Basica</a> Bootstrap HTML Template. By <a href="http://www.vactualart.com">Vactual Art</a>.
+          | <a href="{{ path('fos_user_security_login') }}">Administration</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+{#
+  ./templates/categories/index.html.twig
+  Variables disponibles:
+    - pages Array(Categories(id, slug, nom))
+#}
+
+
+
+
+
+  {% for categorie in categories %}
+
+    <li       >
+
+      <a  href="{{ path('app_categories_show', {
+                      'id': categorie.id,
+                      'slug': categorie.slug
+                }) }}" >
+        {{ attribute(categorie,'nom' ~ app.request.locale) }}
+      </a>
+
+    </li>
+
+
+
+  {% endfor %}

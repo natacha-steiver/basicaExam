@@ -1,0 +1,30 @@
+
+{#
+  ./templates/base.html.twig
+
+#}
+
+    {% include 'partials/head.html.twig'  %}
+
+<body>
+        {% include 'partials/header.html.twig'  %}
+        {% block slider %}        {% endblock %}
+
+{% block content1 %}
+
+    {% endblock %}
+    {% block content3 %}
+
+{% endblock %}
+
+<!-- Our Articles -->
+
+
+	    <!-- Footer -->
+
+        <!-- Javascripts -->
+    {% include 'partials/scripts.html.twig'  %}
+    {% include 'partials/footer.html.twig'  %}
+    </body>
+     
+</html>

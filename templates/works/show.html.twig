@@ -1,0 +1,108 @@
+{#
+  ./templates/works/show.html.twig
+  Variables disponibles:
+    - works Array(Works(id, slug,titre,texte,image))
+#}
+
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block content3 %}
+
+  <div class="section section-breadcrumbs">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{'page_Details_tag.titre' | trans }}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="section">
+<div class="container">
+  <div class="row">
+<div class="col-sm-6">
+  <div class="product-image-large">
+    <img src="{{asset('dist/img/portfolio/'~work.image)}}" alt="Item Name">
+  </div>
+  <div class="colors">
+  <span class="color-white"></span>
+  <span class="color-black"></span>
+  <span class="color-blue"></span>
+  <span class="color-orange"></span>
+  <span class="color-green"></span>
+</div>
+
+</div>
+
+<!-- End Product Image & Available Colors -->
+<!-- Product Summary & Options -->
+<div class="col-sm-6 product-details">
+  <h2> {{  attribute(work, 'titre' ~ app.request.locale)  }}</h2>
+<h3>Quick Overview</h3>
+  <p>
+{{  attribute(work, 'texte' ~ app.request.locale)  }}
+</p>
+
+<h3>Project Details</h3>
+<p><strong>Client: </strong>{{work.clients.nom}}</p>
+<p><strong>Date: </strong>{{work.datecreation  | date('F d, Y') }}</p>
+<p><strong>Tags: </strong>
+{% for tag in work.tags %}
+<a href="{{ path('app_tags_show', {
+                'id': tag.id,
+                'slug': tag.slug
+          }) }}">{{  attribute(tag, 'nom' ~ app.request.locale)  }}</a>,
+{% endfor %}
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+
+				<div class="section-title">
+				<h1>Similar Works</h1>
+				</div>
+
+            <ul class="works_index grid cs-style-3">
+
+        {% for simularWork in simularWorks %}
+       
+              <div class="col-md-3 col-sm-6">
+
+
+            <figure>
+              <img src="{{asset('dist/img/portfolio/'~simularWork.image)}}" alt="{{simularWork.image}}">
+              <figcaption>
+                <h3>{{ attribute(simularWork, 'titre' ~ app.request.locale) }}</h3>
+            <!--
+    <span>simularWork.auteurs.nom}} simularWork.auteurs.prenom}}</span>
+            -->
+                <a href="{{ path('app_works_show', {
+                                'id': simularWork.id,
+                                'slug': simularWork.slug
+                          }) }}">Take a look</a>
+                          
+              </figcaption>
+            </figure>
+
+              </div>
+      
+
+          {% endfor %}
+            </ul>
+				</div>
+			</div>
+		</div>
+
+
+{% endblock %}
